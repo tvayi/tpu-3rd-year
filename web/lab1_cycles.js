@@ -22,8 +22,8 @@ function removeAbcNoCycle(string) {
 }
 
 
-console.log(removeAbcNoCycle('auebkdlwcldheabc1'))
-console.log(removeAbcNoCycle(31))
-console.log(removeAbcNoCycle('aaabbbccc'))
-console.log(removeAbcNoCycle('c'))
-console.log(removeAbcNoCycle('hello'))
+console.log(removeAbc('auebkdlwcldheabc1'))
+console.log(removeAbc(31))
+console.log(removeAbc('aaabbbccc'))
+console.log(removeAbc('c'))
+console.log(removeAbc('hello'))
