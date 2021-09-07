@@ -1,7 +1,13 @@
 function removeAbc(string) {
   if (typeof string != 'string') { 
+    return 'Invalid input: it is not a string';
+  }
+  
+  if ((string.indexOf('a') == -1) && (string.indexOf('b') == -1) && (string.indexOf('c') == -1)){
     return null;
   }
+    
+    
   for (var i = 0; i < string.length; i++) {
       if ((string[i] === 'a') || (string[i] === 'b') || (string[i] === 'c')){
         string = string.replace(string[i], '')
@@ -24,6 +30,6 @@ function removeAbcNoCycle(string) {
 
 console.log(removeAbc('auebkdlwcldheabc1'))
 console.log(removeAbc(31))
-console.log(removeAbc('aaabbbccc'))
+console.log(removeAbc('caaabbbeeeccibieaciddddccdcccc'))
 console.log(removeAbc('c'))
 console.log(removeAbc('hello'))
