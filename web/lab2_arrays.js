@@ -9,7 +9,6 @@ function sumInArray(array) {
         }
         return elements_sum
     }
-  
     else {
         return 'Invalid input: it is not an array'
     }
@@ -20,7 +19,7 @@ function sumInArray(array) {
 
 let fruits = ['Apple', 'Banana', 31, 9, 'Something', 91]
 let empty = []
-let stuff = ['32', 32, [], 'Something', 31, null, 0]
+let stuff = ['32', 32, [2], 'Something', 31, null, 0]
 let error = 102
 let recurrent = [[[[[[]]]]]]
 let object = Object()
