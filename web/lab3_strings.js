@@ -1,12 +1,12 @@
 function arrayToSplitted(array) {
     
     if (Array.isArray(array)) { 
-		let splitted = []
-        for (var i = 0; i < array.length; i++) {
-            tuple = splitCode(array[i])
-			splitted.push(tuple)
-			}
-		return splitted
+  		let splitted = []
+          for (var i = 0; i < array.length; i++) {
+              tuple = splitCode(array[i])
+  			splitted.push(tuple)
+  			}
+  		return splitted
     }
     else {
         return 'Invalid input: it is not an array'
@@ -25,8 +25,9 @@ function splitCode(code){
 	return [code, '']
 }
 
-code = 'bfjsjj321'
-console.log(splitCode(code))
-codeArray = ['newcheck134', 'a24342', 'check', '12312']
+codeArray = ['newcheck134', 'a24342', 'check', '12312', '3123new']
+notAnArray = 'string'
 splitted = arrayToSplitted(codeArray)
+notAnArraySplitted = arrayToSplitted(notAnArray)
 console.log(splitted)
+console.log(notAnArraySplitted)
