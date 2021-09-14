@@ -14,18 +14,34 @@ function arrayToSplitted(array) {
 }
 
 function splitCode(code){
-	for (var j = 0; j < code.length; j++) {
-		if (!isNaN(code.charAt(j))){
-			var letters = code.substring(0, j)
-			var numbers = code.substring(j)
-			var tuple = [letters, numbers]
-			return tuple
+	if (/[a-z]\d+/gi.test(code)){
+		for (var j = 0; j < code.length; j++) {
+			if (!isNaN(code.charAt(j))){
+				var letters = code.substring(0, j)
+				var numbers = code.substring(j)
+				var tuple = [letters, numbers]
+				return tuple
+			}
 		}
+		return [code, '']
 	}
-	return [code, '']
+	else{
+		return 'The code in inappropriate'
+	}
 }
 
-codeArray = ['newcheck134', 'a24342', 'check', '12312', '3123new']
+codeArray = [
+	'newcheck134',
+	'a24342',
+	'check',
+	'12312',
+	'3123new',
+	'notaletter*123',
+	'',
+	'>',
+	'abc123',
+	'ABC133'
+]
 notAnArray = 'string'
 splitted = arrayToSplitted(codeArray)
 notAnArraySplitted = arrayToSplitted(notAnArray)
