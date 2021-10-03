@@ -17,21 +17,16 @@ function sumOfEvens(array) {
   	return sum
     }
     else {
-      return 'Invalid input: it is not an array'
+      return 'Invalid input: it is not 2D array'
     }
 }
  
 function isEven(number) {
-  if (typeof number == 'number') {
-    if (number % 2 === 0) { 
-      return true
-    }
-    else {
-      return false 
-    }
+  if (number % 2 === 0) { 
+    return true
   }
   else {
-    return 'Element ' + number.toString() + 'non a number, skipping'
+    return false 
   }
 }
 
