@@ -3,7 +3,7 @@
 
 #include <sys/types.h>
 #include <unistd.h>
-#include <math.h>
+
 
 int * move_from_city(int *array, int index){
     char cities[4] = {
@@ -13,7 +13,9 @@ int * move_from_city(int *array, int index){
     char current_city = cities[index];
     
     int array_from[4];
-    printf("Want to go from city A to B, C, D \n");
+    printf("\n");
+    printf ("PID процесса %d\n", getpid());
+    printf("Хотят поехать из города %c \n", cities[index]);
     for (int i=0;i<4;i++) {
         if (i == index){
             array_from[i] = 0;
@@ -23,9 +25,10 @@ int * move_from_city(int *array, int index){
     }
     
     int sum = 0;
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < 4; i++)
         sum = sum + array_from[i];
     
+    array[index] -= sum;
     int sum_left = 0;
     int sum_right = 0;
     int index_right = index;
@@ -47,10 +50,17 @@ int * move_from_city(int *array, int index){
     printf("%d человек едет вправо \n", sum_right);
     
     while (sum_right > 0 || sum_left > 0){
-        buses_left = ceil((double)sum_left / (double)20);
+        
+        buses_left = (double)sum_left / (double)20;
+        if ((sum_left % 20) > 0){
+            buses_left+=1;
+        }
         buses_left_int = (int)buses_left;
         
-        buses_right = ceil((double)sum_right / (double)20);
+        buses_right = (double)sum_right / (double)20;
+        if ((sum_right % 20) > 0){
+            buses_right+=1;
+        }
         buses_right_int = (int)buses_right;
         
         
@@ -68,13 +78,14 @@ int * move_from_city(int *array, int index){
             sum_right -= array_from[index_right];
         }
     }
+    printf("%d жителей осталось после переезда \n", array[index]);
     return array;
     
     
 }
 
 int main() {
-    printf("Input amount of people in each city \n");
+    printf("Введите количество жителей в городах от А до Г \n");
     int array[4];
     for (int i=0;i<4;i++) {
        scanf("%d",&array[i]);
@@ -237,6 +248,7 @@ int main() {
     if (read(fd[4][0], &array, sizeof(int)*4) < 0) {
         return 15;
     }
+    printf ("PID процесса %d\n", getpid());
     printf("Теперь в городах жителей:\n");
     for(int i=0 ; i<4 ; i++)
     {
@@ -248,3 +260,4 @@ int main() {
     
     return 0;
 }
+
